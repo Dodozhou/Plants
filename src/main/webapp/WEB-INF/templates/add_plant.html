@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><!--Responsive layout：响应式布局-->
+    <title>添加多肉</title>
+</head>
+<body>
+    <form th:action="@{/plant_upload}" method="post"
+          th:object="${plant}" enctype="multipart/form-data">
+        <label>Plant_Name:</label>
+        <input type="text" th:field="*{plantname}" /><br/>
+        <label>Category:</label>
+        <input type="text" th:field="*{category}" /><br/>
+        <label for="file_up" style="cursor: pointer">
+            <img id="up_img" src="/static/img/upload.png"/>
+            <span>点击添加图片</span>
+        </label>
+        <input type="file" name="image" id="file_up"  style="display: none;" /><br/>
+        <label>Price:</label>
+        <input type="text" th:field="*{price}" /><br/>
+        <label>Description:</label>
+        <input type="text" th:field="*{description}" /><br/>
+
+        <button type="submit">Submit</button>
+    </form>
+
+
+<script>
+    document.getElementById('file_up').onchange = function() {
+        var imgFile = this.files[0];
+        var fr = new FileReader();
+        fr.onload = function() {
+            document.getElementById('up_img').src = fr.result;
+        };
+        fr.readAsDataURL(imgFile);
+    };
+</script>
+</body>
+</html>
