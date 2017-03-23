@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="rich_plants@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="rich_plants">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="app"/>
+    <schema id="4" parent="1" name="bbs"/>
+    <schema id="5" parent="1" name="bg_sys"/>
+    <schema id="6" parent="1" name="ckp_cms"/>
+    <schema id="7" parent="1" name="estoresystem"/>
+    <schema id="8" parent="1" name="hibernate"/>
+    <schema id="9" parent="1" name="information_schema"/>
+    <schema id="10" parent="1" name="itronys"/>
+    <schema id="11" parent="1" name="jpetstore"/>
+    <schema id="12" parent="1" name="login"/>
+    <schema id="13" parent="1" name="mydata"/>
+    <schema id="14" parent="1" name="mysql"/>
+    <schema id="15" parent="1" name="performance_schema"/>
+    <schema id="16" parent="1" name="spring"/>
+    <schema id="17" parent="1" name="springboot"/>
+    <schema id="18" parent="1" name="springdao"/>
+    <schema id="19" parent="1" name="springdemo"/>
+    <schema id="20" parent="1" name="sys"/>
+    <schema id="21" parent="1" name="test"/>
+    <schema id="22" parent="1" name="time"/>
+    <schema id="23" parent="1" name="yiling"/>
+    <table id="24" parent="2" name="myplants"/>
+    <table id="25" parent="2" name="plants"/>
+    <table id="26" parent="2" name="users"/>
+    <column id="27" parent="24" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="28" parent="24" name="owner">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="24" name="date">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="24" name="plant">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="31" parent="24" name="owner_user_idx">
+      <ColNames>owner</ColNames>
+    </index>
+    <index id="32" parent="24" name="plant_my_idx">
+      <ColNames>plant</ColNames>
+    </index>
+    <key id="33" parent="24" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="34" parent="24" name="owner_user">
+      <ColNames>owner</ColNames>
+      <RefSchemaName>rich_plants</RefSchemaName>
+      <RefTableName>users</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <foreign-key id="35" parent="24" name="plant_my">
+      <ColNames>plant</ColNames>
+      <RefSchemaName>rich_plants</RefSchemaName>
+      <RefTableName>plants</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <column id="36" parent="25" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="37" parent="25" name="plantname">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="38" parent="25" name="category">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="39" parent="25" name="imgs">
+      <Position>4</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="40" parent="25" name="price">
+      <Position>5</Position>
+      <DataType>int(5)|0</DataType>
+    </column>
+    <key id="41" parent="25" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="42" parent="26" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="43" parent="26" name="username">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="44" parent="26" name="password">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="45" parent="26" name="email">
+      <Position>4</Position>
+      <DataType>varchar(45)|0</DataType>
+      <DefaultExpression>&apos;plants&apos;</DefaultExpression>
+    </column>
+    <key id="46" parent="26" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
